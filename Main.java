@@ -1,5 +1,3 @@
-package Spacer;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -15,7 +13,7 @@ class Main{
 	private static position pos = new position();
 	private static story s = new story();
 	private static Store store = new Store();
-	
+
 	//Choices and main method
 	public static void main(String[] args) throws IOException, InterruptedException {
 		boolean end = false;
@@ -70,7 +68,7 @@ class Main{
 			}
 		}
 	}
-	
+
 	private static void showCargo() throws IOException {
 		System.out.print("This is what we have in our manifest:\n");
 		for (int i=0;i<p1.materialLength;i++) {
@@ -125,7 +123,7 @@ class Main{
 			if(pos.getsys(i)) {
 				systems.add(pos.getSysName(i));
 			}
-		} 
+		}
 		for (int i = 0;i<pos.active_Systems.length;i++) {
 			if(pos.getsys(i)&&!pos.getSysName(i).equals(pos.getCurrentPosition())) {
 				count+=1;
@@ -146,11 +144,21 @@ class Main{
 				System.out.print("Unknown system. Please choose again\n>");
 				system = kb.nextLine();
 			}
+			String reloc = "Relocating";
 			pos.setCurrentLocation(system);
+			for (int i = 0; i<3; i++){
+				System.out.print("\r" + reloc);
+				reloc+= ".";
+				try{
+					Thread.sleep(1000);
+				} catch (Exception E) {
+					System.out.print("Error");
+				}
+			}
 			System.out.print("\nYou are now located at "+pos.getCurrentPosition()+"\n");
 		} else {
 			System.out.print("\nThere are no open systems for you to jump to\n");
 		}
-		return system;	
+		return system;
 	}
 }
