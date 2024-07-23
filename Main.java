@@ -146,7 +146,7 @@ class Main{
 			}
 			String reloc = "Relocating";
 			pos.setCurrentLocation(system);
-			for (int i = 0; i<3; i++){
+			for (int i = 0; i<4; i++){
 				System.out.print("\r" + reloc);
 				reloc+= ".";
 				try{
