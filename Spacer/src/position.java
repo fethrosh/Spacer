@@ -4,7 +4,7 @@ public class position {
 	public boolean [] active_Systems= {false,false,false,false,false,false};
 	public static final int systemLength = system_Name.length;
 
-	//constructor
+	//positional constructor
 	public position() {
 		active_Systems[0]=true;
 		currentLocation="base";
